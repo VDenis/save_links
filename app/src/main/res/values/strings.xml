@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Save Links</string>
+    <string name="page_name_label">page_name</string>
+    <string name="copy_toast">Copy link name</string>
+</resources>
