@@ -27,16 +27,26 @@ public class MainActivity extends AppCompatActivity {
             String text_text = intent.getStringExtra(Intent.EXTRA_TEXT);
             Log.d(TAG, "startIntent: " + text_subject);
             Log.d(TAG, "startIntent: " + text_text);
+            Log.d(TAG, "startIntent: " + intent.toString());
+
+            // check NPE text_subject, text_text
+            if (text_subject == null || text_text == null) {
+                Log.d(TAG, "startIntent: No links to share");
+                return;
+            }
+
+            // find url in text with url
+            text_text = Utility.getUrlFromText(text_text);
+
+            // TODO create internetshortcut
+            //text_text = Utility.createInternetShortcut(text_text);
 
             // Create the text message with a string
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
-            // TODO: Use EXTRA_SUBJECT or EXTRA_SHORTCUT_NAME, not both
             sendIntent.putExtra(Intent.EXTRA_SUBJECT, text_subject);
-            //sendIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, text_subject);
             sendIntent.putExtra(Intent.EXTRA_TEXT, text_text);
             sendIntent.setType("text/plain");
-            //sendIntent.setType("application/internet-shortcut");
 
             copyToClipBoard(MainActivity.this, text_subject);
 

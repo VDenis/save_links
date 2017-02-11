@@ -23,7 +23,9 @@
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <category android:name="android.intent.category.DEFAULT"/>
 
-                <data android:mimeType="text/plain"/>
+                <!-- "image/*" for MIUI Browser, "text/*" for Google Chrome -->
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="text/*"/>
             </intent-filter>
         </activity>
 
