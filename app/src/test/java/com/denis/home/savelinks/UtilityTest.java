@@ -19,4 +19,10 @@ public class UtilityTest {
         assertEquals(actualUrl, result);
     }
 
+    @Test
+    public void getUrlFromTextWithError() throws Exception {
+        String result = Utility.getUrlFromText("");
+        assertEquals("", result);
+    }
+
 }
